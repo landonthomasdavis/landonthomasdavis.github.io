@@ -1,117 +1,58 @@
-// =====================================
-// SCROLL REVEAL ANIMATION
-// =====================================
+// script.js
 
-const revealElements = document.querySelectorAll(".reveal");
+// 1. Hacker Text Effect
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+document.querySelector("h1").onmouseover = event => {
+    let iteration = 0;
+    const interval = setInterval(() => {
+        event.target.innerText = event.target.innerText
+            .split("")
+            .map((letter, index) => {
+                if(index < iteration) return event.target.dataset.value[index];
+                return letters[Math.floor(Math.random() * 26)]
+            })
+            .join("");
+        
+        if(iteration >= event.target.dataset.value.length) clearInterval(interval);
+        iteration += 1 / 3;
+    }, 30);
+}
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+// 2. Simple Particle Background
+const canvas = document.getElementById('hero-canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-        if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-        }
-
-    });
-},
-{
-    threshold: 0.15
-});
-
-revealElements.forEach(el => {
-    observer.observe(el);
-});
-
-
-// =====================================
-// NAVBAR SHADOW ON SCROLL
-// =====================================
-
-const header = document.querySelector("header");
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 50) {
-
-        header.style.boxShadow = "0 6px 20px rgba(0,0,0,0.4)";
-
-    } else {
-
-        header.style.boxShadow = "none";
-
+let particles = [];
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
     }
-
-});
-
-
-// =====================================
-// SMOOTH NAVIGATION HIGHLIGHT
-// =====================================
-
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll", () => {
-
-    let current = "";
-
-    sections.forEach(section => {
-
-        const sectionTop = section.offsetTop - 120;
-
-        if (window.scrollY >= sectionTop) {
-            current = section.getAttribute("id");
-        }
-
-    });
-
-    navLinks.forEach(link => {
-
-        link.classList.remove("active");
-
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
-        }
-
-    });
-
-});
-
-
-// =====================================
-// PARALLAX HERO EFFECT
-// =====================================
-
-const heroBg = document.querySelector(".hero-bg");
-
-window.addEventListener("scroll", () => {
-
-    const scrollValue = window.scrollY;
-
-    if (heroBg) {
-
-        heroBg.style.transform = `translateY(${scrollValue * 0.15}px)`;
-
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
     }
-
-});
-
-
-// =====================================
-// FADE HERO TEXT ON SCROLL
-// =====================================
-
-const heroContent = document.querySelector(".hero-content");
-
-window.addEventListener("scroll", () => {
-
-    const scrollValue = window.scrollY;
-
-    if (heroContent) {
-
-        const opacity = 1 - scrollValue / 600;
-
-        heroContent.style.opacity = opacity;
-
+    draw() {
+        ctx.fillStyle = '#00ff41';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
     }
+}
 
-});
+function init() {
+    for (let i = 0; i < 100; i++) particles.push(new Particle());
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(animate);
+}
+init();
+animate();
