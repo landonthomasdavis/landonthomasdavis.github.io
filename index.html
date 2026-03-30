@@ -1,31 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Landon Thomas Davis | Engineering Portfolio</title>
+    <meta name="description" content="Engineering portfolio of Landon Thomas Davis, Engine Development Engineer at Toyota Racing (TGR).">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <canvas id="hero-canvas"></canvas> <nav>
-        <div class="logo">Revision: 001</div>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <!-- Header Section with Navigation -->
+    <header>
+        <nav aria-label="Main Navigation">
+            <div class="logo">Revision: 001</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
 
-    <header class="hero">
-        <h1 data-value="Engineering Technical Portfolio">Engineering Technical Portfolio</h1>
-        <p class="typewriter">Landon Thomas Davis, Engine Development Engineer (Toyota Racing, TGR)</p>
+        <!-- Hero Section -->
+        <div class="hero">
+            <canvas id="hero-canvas" aria-label="Animated hero background"></canvas>
+            <h1 data-value="Engineering Technical Portfolio">Engineering Technical Portfolio</h1>
+            <p class="typewriter">Landon Thomas Davis, Engine Development Engineer (Toyota Racing, TGR)</p>
+        </div>
     </header>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="grid" id="project-grid">
+    <!-- Main Content -->
+    <main>
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                Experienced engine development engineer specializing in high-performance automotive systems. Passionate about technical innovation and motorsport engineering.
+            </p>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="grid" id="project-grid">
+                <!-- Example project cards; these can be dynamically populated via JS -->
+                <div class="project-card">
+                    <h3>Project Title 1</h3>
+                    <p>Brief description of project 1.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Project Title 2</h3>
+                    <p>Brief description of project 2.</p>
+                </div>
+                <!-- Additional projects go here -->
             </div>
-    </section>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:landon@example.com">landon@example.com</a></p>
+            <p>LinkedIn: <a href="https://linkedin.com/in/landon" target="_blank" rel="noopener">linkedin.com/in/landon</a></p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Landon Thomas Davis. All rights reserved.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
