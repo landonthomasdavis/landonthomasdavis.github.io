@@ -2,7 +2,7 @@
 
 // ================================
 // 1. Particle Background
-// ================================
+// ==============================
 const canvas = document.getElementById('hero-canvas');
 const ctx = canvas.getContext('2d');
 
@@ -21,7 +21,7 @@ class Particle {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.size = Math.random() * 2 + 1;
-        this.speedX = (Math.random() - 0.5) * 0.5; // subtle movement
+        this.speedX = (Math.random() - 0.5) * 0.5;
         this.speedY = (Math.random() - 0.5) * 0.5;
     }
     update() {
@@ -35,7 +35,7 @@ class Particle {
         if (this.y > canvas.height) this.y = 0;
     }
     draw() {
-        ctx.fillStyle = 'rgba(30, 144, 255, 0.3)'; // soft tech blue
+        ctx.fillStyle = 'rgba(30, 144, 255, 0.2)'; // subtle soft tech blue
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -51,11 +51,15 @@ function initParticles() {
 initParticles();
 
 function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Fill the canvas with the light background first
+    ctx.fillStyle = '#f5f5f5'; // same as your CSS body background
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
     particles.forEach(p => {
         p.update();
         p.draw();
     });
+
     requestAnimationFrame(animate);
 }
 animate();
