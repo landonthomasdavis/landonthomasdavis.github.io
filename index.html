@@ -1,67 +1,36 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landon Thomas Davis | Engineering Portfolio</title>
-    <meta name="description" content="Engineering portfolio of Landon Thomas Davis, Engine Development Engineer at Toyota Racing (TGR).">
+    <title>Engineer Portfolio | Your Name</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav aria-label="Main Navigation">
-            <div class="logo">REV: 001</div>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <nav id="navbar">
+        <div class="logo">NAME<span>.ENG</span></div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-        <div class="hero">
-            <canvas id="hero-canvas" aria-label="Animated hero background"></canvas>
-            <div class="hero-content">
-                <h1 data-value="Engineering Technical Portfolio">Engineering Technical Portfolio</h1>
-                <p class="typewriter">Landon Thomas Davis | Engine Development Engineer @ Toyota Racing</p>
-            </div>
-        </div>
+    <header id="hero">
+        <h1>Building the <span class="highlight">Future</span> through Code.</h1>
+        <p>Mechanical Engineer turned Software Architect specialized in Scalable Systems.</p>
     </header>
 
-    <main>
-        <section id="about" class="container">
-            <h2>About Me</h2>
-            <p>
-                Driven Engine Development Engineer with expertise in high-performance powertrain systems. Currently optimizing engine dynamics and reliability for Toyota Gazoo Racing (TGR). Passionate about thermal efficiency, fluid dynamics, and pushing the limits of motorsport engineering.
-            </p>
-        </section>
-
-        <section id="projects" class="container bg-light">
-            <h2>Projects</h2>
-            <div class="grid" id="project-grid">
-                <div class="project-card">
-                    <h3>Combustion Optimization</h3>
-                    <p>Brief description of your role in improving thermal efficiency or power output for a specific engine platform.</p>
-                </div>
-                <div class="project-card">
-                    <h3>Telemetry Data Analysis</h3>
-                    <p>Details on how you utilized track data to inform hardware calibration and design changes.</p>
-                </div>
+    <section id="projects">
+        <h2>Technical Projects</h2>
+        <div class="project-grid" id="project-container">
+            <div class="project-card">
+                <h3>Autonomous Drone Pathing</h3>
+                <p>Implemented A* search algorithms for real-time obstacle avoidance.</p>
+                <div class="tags"><span>Python</span> <span>C++</span> <span>ROS</span></div>
             </div>
-        </section>
-
-        <section id="contact" class="container">
-            <h2>Contact</h2>
-            <div class="contact-info">
-                <p>Email: <a href="mailto:landonthomasdavis@yahoo.com">landonthomasdavis@yahoo.com</a></p>
-                <p>LinkedIn: <a href="https://linkedin.com/in/landon-thomas-davis" target="_blank" rel="noopener">linkedin.com/in/landon-thomas-davis</a></p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Landon Thomas Davis. All rights reserved.</p>
-    </footer>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
